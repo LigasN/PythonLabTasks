@@ -155,42 +155,24 @@ else:
 # Sortowanie
 
 ##############################################################################
-'''
-import random, time
+import random
 
-def my_sort(ls):
-    """Function to sort in decreasing order
-    as input enter a list with unsorted numbers
-    
-    function return None, but its working on reference to
-    a list, so te original will change
-    """
-    
-    tmp = None
-    cond = True
-    
-    while cond == True:                         #sorting until proper order (if condition
-                                                #always False after looking whole list)
-        cond = False
-        
-        for index in range(1, len(ls)):            
-            if ls[index] > ls[index - 1]:
-                tmp = ls[index - 1]
-                ls[index - 1] = ls[index]
-                ls[index] = tmp
-                
-                cond = True
+tab = random.sample(range(100000),50)
+in_tab = tab[:]
+in_tab2 = tab[:]
 
-to_sort = [int(random.random() * 100) for x in range(50)] #list to sort
-to_my_sort = to_sort[:]  #copy for another algorithm
-start = time.time()     #time check
-my_sort(to_my_sort)
-my_alg = time.time()
-to_sort.sort(reverse = True)
-python_alg = time.time()
-print('is result the same? ', to_sort == to_my_sort)
-print('my_time: ' + str(my_alg - start) + ', python alg time: ' + str(python_alg - my_alg))
-'''
+for x in range(len(in_tab)):
+    for y in range(len(in_tab)):
+        if x != y and in_tab[x] < in_tab[y]:
+            tmp = in_tab[y]
+            in_tab[y] = in_tab[x]
+            in_tab[x] = tmp
+
+if in_tab == sorted(in_tab2):
+    print("Liczby są dobrze posortowane")
+else:
+    print("Spróbuj jeszcze raz") 
+
 ##############################################################################
 
 # Iloczyn skalarny
