@@ -43,30 +43,15 @@
 # Ilosc plikow
 
 ##############################################################################
-'''
-import os.py
+import os
 
-DIR = ' C:\ProgramFiles \ Common Files \ System '
+path = 'xxx'           #tutaj wpisujemy swoją ścieżkę do katalogu
+file_list = os.listdir(path)
 
-a = "C:\ "
-b = a[:3]
+print('\n'.join(file_list))
 
-path, file = os.path.split(DIR)
-print(path)
-print(file)
+print('Liczba plików znajdujących się w tym katalogu: ', len(file_list))
 
-while path != b:
-    print(DIR)
-    ls = os.listdir(DIR)
-    path, file = os.path.split(DIR)
-    for x in ls:
-        print(x)
-    DIR(path)
-    
-ls = os.listdir(DIR)
-for x in ls:
-    print(x)
-'''
 ##############################################################################
 
 # Usuwanie slow
