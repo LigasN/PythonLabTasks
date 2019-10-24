@@ -46,26 +46,32 @@ print("Witaj " + name + " " + surname + " urodzony w " +birthYear+ "!")
 '''
 import os
 
-DIR = ' C:\ProgramFiles \ Common Files \ System '
+path = 'D:\Nazwa pliku\Nazwa pliku\Nazwa pliku'           #tutaj wpisujemy swoją ścieżkę do katalogu
 
-a = "C:\ "
-b = a[:3]
+files = os.listdir(path)
 
-path, file = os.path.split(DIR)
+print("W pliku o ścieżce " + path + " znajduje sie " + str(len(files)) + " pliki")
+
+'''
+##############################################################################
+
+# Struktura katalogu
+
+##############################################################################
+'''
+import os
+
+path = 'D:\Nazwa pliku\Nazwa pliku\Nazwa pliku'           #tutaj wpisujemy swoją ścieżkę do katalogu
+end_path = 'D:\ '                                         #koniec wypisywania zawartości plików
+
+while path != end_path[:-1]:
+    print(path)
+    print('\n'.join(os.listdir(path)))
+    path = os.path.dirname(path)
+    print('\n')
+
 print(path)
-print(file)
-
-while path != b:
-    print(DIR)
-    ls = os.listdir(DIR)
-    path, file = os.path.split(DIR)
-    for x in ls:
-        print(x)
-    DIR(path)
-    
-ls = os.listdir(DIR)
-for x in ls:
-    print(x)
+print('\n'.join(os.listdir(path)))
 '''
 ##############################################################################
 
