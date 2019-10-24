@@ -1,46 +1,46 @@
 ##############################################################################
 
-#Hello World
+# Hello World
 
 ##############################################################################
 
-#print("Hello World")
+# print("Hello World")
 
 ##############################################################################
 
-#Wprowadzanie danych
+# Wprowadzanie danych
 
 ##############################################################################
 
-#data = input("Podaj swoje imie, nazwisko i rok urodzenia: ")
-#data = data.split()
+# data = input("Podaj swoje imie, nazwisko i rok urodzenia: ")
+# data = data.split()
 #
-#name = data[0]
-#surname = data[1]
-#birthYear = data[2]
+# name = data[0]
+# surname = data[1]
+# birthYear = data[2]
 #
-#print("Witaj " + name + " " + surname + " urodzony w " +birthYear+ "!")
+# print("Witaj " + name + " " + surname + " urodzony w " +birthYear+ "!")
 
 ###############################################################################
 
 
-#Zapis danych
+# Zapis danych
 
 ##############################################################################
-#kod = 1234
+# kod = 1234
 #
-#while(1):
-#password = int(input("PASSWORD: "))
+# while(1):
+# password = int(input("PASSWORD: "))
 #
-#if(kod == password):
-#print("Welcome in!!!")
-#break
-#else /* : */
-#print("Try again!")
+# if(kod == password):
+# print("Welcome in!!!")
+# break
+# else /* : */
+# print("Try again!")
 #
 ##############################################################################
 
-#Ilosc plikow
+# Ilosc plikow
 
 ##############################################################################
 '''
@@ -69,7 +69,7 @@ for x in ls:
 '''
 ##############################################################################
 
-#Usuwanie slow
+# Usuwanie slow
 
 ##############################################################################
 '''
@@ -94,7 +94,7 @@ print(textToRead)
  '''
 ##############################################################################
 
-#Podmienianie slow
+# Podmienianie slow
 
 ##############################################################################
 '''
@@ -193,7 +193,7 @@ print('my_time: ' + str(my_alg - start) + ', python alg time: ' + str(python_alg
 '''
 ##############################################################################
 
-#Iloczyn skalarny
+# Iloczyn skalarny
 
 ##############################################################################
 '''
@@ -213,10 +213,10 @@ def dot_product(a, b):
 a = [1, 2, 12, 4]
 b = [2, 4, 2, 8]
 dot_product(a, b)
-'''    
+'''
 ##############################################################################
 
-#Suma macierzy
+# Suma macierzy
 
 ##############################################################################
 '''
@@ -240,7 +240,7 @@ matrix_adder(a,b)
 
 ##############################################################################
 
-#Mnożenie macierzy
+# Mnożenie macierzy
 
 ##############################################################################
 '''
@@ -254,7 +254,7 @@ print(str(C))
 '''
 ##############################################################################
 
-#Wyznacznik macierzy
+# Wyznacznik macierzy
 
 ##############################################################################
 '''
@@ -266,157 +266,152 @@ print("wyznacznik macierzy to: " + str(np.linalg.det(A)))
 '''
 ##############################################################################
 
-#Liczby zespolone
+# Liczby zespolone
 
 ##############################################################################
-import math
-class myComplex:
+
+
+class MyComplex:
     def __init__(self, number):
-        if(type(number) == complex):
+        if type(number) == complex:
             self.real = number.real
             self.imag = number.imag
-        elif(type(number) == myComplex):
-            self.real = number.getReal()
-            self.imag = number.getImag()
+        elif type(number) == MyComplex:
+            self.real = number.get_real()
+            self.imag = number.get_imag()
 
-    def getReal(self):
+    def get_real(self):
         return self.real
 
-    def getImag(self):
+    def get_imag(self):
         return self.imag
 
     def __add__(self, number):
-        if(type(number) == complex):
-            a = self.getReal() + number.real
-            b = self.getImag() + number.imag
+        if type(number) == complex:
+            a = self.get_real() + number.real
+            b = self.get_imag() + number.imag
             return str(str(a) + " + j" + str(b))
-        elif(type(number) == myComplex):
-            a = self.getReal() + number.getReal()
-            b = self.getImag() + number.getImag()
+        elif type(number) == MyComplex:
+            a = self.get_real() + number.get_real()
+            b = self.get_imag() + number.get_imag()
             return str(str(a) + " + j" + str(b))
 
     def __sub__(self, number):
-        if(type(number) == complex):
-            a = self.getReal() - number.real
-            b = self.getImag() - number.imag
+        if type(number) == complex:
+            a = self.get_real() - number.real
+            b = self.get_imag() - number.imag
             return str(str(a) + " + j" + str(b))
-        elif(type(number) == myComplex):
-            a = self.getReal() - number.getReal()
-            b = self.getImag() - number.getImag()
+        elif type(number) == MyComplex:
+            a = self.get_real() - number.get_real()
+            b = self.get_imag() - number.get_imag()
             return str(str(a) + " + j" + str(b))
 
     def __mul__(self, number):
-        if(type(number) == complex):
-            a = self.getReal() * number.real - self.getImag() * number.imag
-            b = self.getImag() * number.real + self.getReal() * number.imag
+        if type(number) == complex:
+            a = self.get_real() * number.real - self.get_imag() * number.imag
+            b = self.get_imag() * number.real + self.get_real() * number.imag
             return str(str(a) + " + j" + str(b))
-        elif(type(number) == myComplex):
-            a = self.getReal() * number.getReal() - self.getImag() * number.getImag()
-            b = self.getReal() * number.getImag() + self.getImag() * number.getReal()
+        elif type(number) == MyComplex:
+            a = self.get_real() * number.get_real() - self.get_imag() * number.get_imag()
+            b = self.get_real() * number.get_imag() + self.get_imag() * number.get_real()
             return str(str(a) + " + j" + str(b))
 
     def __mod__(self):
-        a = sqrt(pow(self.getReal()) + pow(self.real))
+        a = pow((pow(self.get_real()) + pow(self.real)), 0.5)
         return str(str(a))
-    
+
     def __str__(self):
-        a = self.real + self.imag * j;
+        a = self.real + self.imag * j
         return str(a)
 
-    def compute(self, toCompute):
-        self = myComplex(complex(int(toCompute[0]),int(toCompute[3])))
-        other = myComplex(complex(int(toCompute[5]),int(toCompute[8])))
-        if(toCompute[1] == "+"):
-            wynik = self + other
-        elif(toCompute[1] == "-"):
-            wynik = self - other
-        elif(toCompute[1] == "*"):
-            wynik = self * other
-        elif(toCompute[1] == "||"):
-            wynik = self
-        print(wynik)
-        
-        
+    def compute(self, to_compute):
+        self = MyComplex(complex(int(to_compute[0]), int(to_compute[3])))
+        other = MyComplex(complex(int(to_compute[5]), int(to_compute[8])))
+        if to_compute[1] == "+":
+            result = self + other
+        elif to_compute[1] == "-":
+            result = self - other
+        elif to_compute[1] == "*":
+            result = self * other
+        elif to_compute[1] == "||":
+            result = self
+        print(result)
 
-obj3 = myComplex(1+4j)
-obj4 = myComplex(9+8j)
+
+obj3 = MyComplex(1 + 4j)
+obj4 = MyComplex(9 + 8j)
 obj5 = obj3 + obj4
-#print(obj5)
+
+
+# print(obj5)
 
 ##############################################################################
 
-# Kalkulator Wykorzystaj powyzszą klasę do stworzenia prostego kalkulatora, parsującego i wykonującego równanie podane przez użytkownika
+# Kalkulator Wykorzystaj powyzszą klasę do stworzenia prostego kalkulatora, parsującego i wykonującego równanie
+# podane przez użytkownika
 
 ##############################################################################
 
-class Calc:
+class Calculate:
+    @staticmethod
     def __add(one, other):
         return one + other
+
+    @staticmethod
     def __sub(one, other):
         return one - other
+
+    @staticmethod
     def __mul(one, other):
         return one * other
-    def	__truediv(one, other):
+
+    @staticmethod
+    def __truediv(one, other):
         return one / other
-    def __floordiv(one, other):
-        return int(__truediv(other))
-    def __mod(one, other):
-        return one - __floordiv(other) * other
+
+    def __floordiv(self, one, other):
+        return int(self.__truediv(one, other))
+
+    def __mod(self, one, other):
+        return one - self.__floordiv(self, one, other) * other
+
+    @staticmethod
     def __pow(one, other):
-        if (other == 0):
+        if other == 0:
             return 1
-        elif (other == 1):
+        elif other == 1:
             return one
         a = one
         for i in range(1, other):
-            one = one*a
+            one = one * a
         return one
-    def compute(self, obj, toCompute):
-        toCompute = toCompute.split()
-        print(toCompute)
-        if(toCompute[2] == 'j'):
-            return obj.compute(obj, toCompute)
+
+    def compute(self, calculator: object, to_compute: object) -> object:
+        to_compute = to_compute.split()
+        print(to_compute)
+        if to_compute[2] == 'j':
+            return calculator.compute(calculator, to_compute)
         else:
-            a = int(toCompute[0])
-            b = int(toCompute[2])
-            if(toCompute[1] == "+"):
-                wynik = self.__add(a, b)
-            elif(toCompute[1] == "-"):
-                wynik = self.__sub(a, b)
-            elif(toCompute[1] == "*"):
-                wynik = self.__mul(a, b)
-            elif(toCompute[1] == "/"):
-                wynik = self.__truediv(a, b)
-            elif(toCompute[1] == "int/"):
-                wynik = self.__floordiv(a, b)
-            elif(toCompute[1] == "||"):
-                wynik = self.__mod(a, b)
-            elif(toCompute[1] == "^"):
-                wynik = self.__pow(a, b)
-                    
-        print(str(wynik))
+            a = int(to_compute[0])
+            b = int(to_compute[2])
+            if to_compute[1] == "+":
+                result = self.__add(a, b)
+            elif to_compute[1] == "-":
+                result = self.__sub(a, b)
+            elif to_compute[1] == "*":
+                result = self.__mul(a, b)
+            elif to_compute[1] == "/":
+                result = self.__truediv(a, b)
+            elif to_compute[1] == "int/":
+                result = self.__floordiv(a, b)
+            elif to_compute[1] == "||":
+                result = self.__mod(a, b)
+            elif to_compute[1] == "^":
+                result = self.__pow(a, b)
 
-obj = Calc
-obj1 = myComplex
-obj.compute(obj, obj1, "10 + j 3 - 7 - j 5")
-
-    
+        print(str(result))
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+obj = Calculate
+obj1 = MyComplex
+obj.compute( obj, obj1, "10 + j 3 - 7 - j 5")
