@@ -282,6 +282,7 @@ class MyComplex:
             return str(str(a) + " + j" + str(b))
 
     def __sub__(self, number):
+        print("odejmowanie 2")
         if type(number) == complex:
             a = self.get_real() - number.real
             b = self.get_imag() + number.imag
