@@ -4,7 +4,7 @@
 
 ##############################################################################
 
-# print("Hello World")
+print("Hello World")
 
 ##############################################################################
 
@@ -12,32 +12,31 @@
 
 ##############################################################################
 
-# data = input("Podaj swoje imie, nazwisko i rok urodzenia: ")
-# data = data.split()
-#
-# name = data[0]
-# surname = data[1]
-# birthYear = data[2]
-#
-# print("Witaj " + name + " " + surname + " urodzony w " +birthYear+ "!")
+data = input("Podaj swoje imie, nazwisko i rok urodzenia: ")
+data = data.split()
+
+name = data[0]
+surname = data[1]
+birthYear = data[2]
+
+print("Witaj " + name + " " + surname + " urodzony w " +birthYear+ "!")
 
 ###############################################################################
-
 
 # Zapis danych
 
 ##############################################################################
-# kod = 1234
-#
-# while(1):
-# password = int(input("PASSWORD: "))
-#
-# if(kod == password):
-# print("Welcome in!!!")
-# break
-# else /* : */
-# print("Try again!")
-#
+kod = 1234
+
+while(1):
+password = int(input("PASSWORD: "))
+
+if(kod == password):
+print("Welcome in!!!")
+break
+else /* : */
+print("Try again!")
+
 ##############################################################################
 
 # Ilosc plikow
@@ -57,7 +56,6 @@ print('Liczba plików znajdujących się w tym katalogu: ', len(file_list))
 # Usuwanie slow
 
 ##############################################################################
-'''
 text = ''''''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
 eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim 
 veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -76,13 +74,11 @@ for word  in text:
     textToRead += word + ' '
     
 print(textToRead)
- '''
 ##############################################################################
 
 # Podmienianie slow
 
 ##############################################################################
-'''
 text = ''''''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
 eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim 
 veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -107,13 +103,11 @@ for word  in text:
     textToRead = textToRead + word + ' '
     
 print(textToRead)
-'''
 ##############################################################################
 
 # Równanie kwadratowe
 
 ##############################################################################
-'''
 import math
 print ("Rownanie kwardatowe ax^2+bx+c")
 a = int(input("Podaj wspolczynnik rowniania a: "))
@@ -134,7 +128,7 @@ else:
         x1=(-b-sqrt_delta)/(2*a)
         x2=(-b+sqrt_delta)/(2*a)
         print ("X1 = " + str(x1) + ", X2 = " + str(x2))
-'''
+
 ##############################################################################
 
 # Sortowanie
@@ -163,7 +157,6 @@ else:
 # Iloczyn skalarny
 
 ##############################################################################
-'''
 def dot_product(a, b):
     """Counting dot product of two 1D lists of the same size
     Input:
@@ -180,13 +173,12 @@ def dot_product(a, b):
 a = [1, 2, 12, 4]
 b = [2, 4, 2, 8]
 dot_product(a, b)
-'''
+
 ##############################################################################
 
 # Suma macierzy
 
 ##############################################################################
-'''
 def matrix_adder(matrix1, matrix2):    
     try:
         
@@ -203,14 +195,13 @@ def matrix_adder(matrix1, matrix2):
 a = [[1,2],[3,4]]
 b = [[-1,-2],[-3,-4]]
 matrix_adder(a,b)
-'''
 
 ##############################################################################
 
 # Mnożenie macierzy
 
 ##############################################################################
-'''
+
 import numpy as np
 
 A = np.array([[3,4,5], [1,2,3], [4,5,6]])
@@ -218,26 +209,23 @@ B = np.array([[-2, 5,1], [7, 0, 2], [-1, 0,5]])
 
 C = A*B
 print(str(C))
-'''
+
 ##############################################################################
 
 # Wyznacznik macierzy
 
 ##############################################################################
-'''
 import numpy as np
 
 A = np.array([[3,-50,4,5], [1,2,12,3], [4,5,6,59], [423,-5,36,29]])
 
 print("wyznacznik macierzy to: " + str(np.linalg.det(A)))
-'''
+
 ##############################################################################
 
 # Liczby zespolone
 
 ##############################################################################
-
-
 class MyComplex:
     def __init__(self, number):
         if type(number) == complex:
