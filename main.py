@@ -3,24 +3,24 @@
 # Hello World
 
 ##############################################################################
-
-# print("Hello World")
-
+'''
+print("Hello World")
+'''
 ##############################################################################
 
 # Wprowadzanie danych
 
 ##############################################################################
+'''
+data = input("Podaj swoje imie, nazwisko i rok urodzenia: ")
+data = data.split()
 
-# data = input("Podaj swoje imie, nazwisko i rok urodzenia: ")
-# data = data.split()
-#
-# name = data[0]
-# surname = data[1]
-# birthYear = data[2]
-#
-# print("Witaj " + name + " " + surname + " urodzony w " +birthYear+ "!")
+name = data[0]
+surname = data[1]
+birthYear = data[2]
 
+print("Witaj " + name + " " + surname + " urodzony w " +birthYear+ "!")
+'''
 ###############################################################################
 
 
@@ -44,7 +44,7 @@
 
 ##############################################################################
 '''
-import os.py
+import os
 
 DIR = ' C:\ProgramFiles \ Common Files \ System '
 
@@ -158,7 +158,7 @@ else:
 '''
 import random
 
-tab = random.sample(range(100000), 50)
+tab = random.sample(range(100000),50)
 in_tab = tab[:]
 in_tab2 = tab[:]
 
@@ -172,7 +172,7 @@ for x in range(len(in_tab)):
 if in_tab == sorted(in_tab2):
     print("Liczby są dobrze posortowane")
 else:
-    print("Spróbuj jeszcze raz")
+    print("Spróbuj jeszcze raz") 
 '''
 ##############################################################################
 
@@ -254,7 +254,7 @@ print("wyznacznik macierzy to: " + str(np.linalg.det(A)))
 # Complex numbers
 
 ##############################################################################
-
+'''
 
 class MyComplex:
     def __init__(self, number):
@@ -282,7 +282,6 @@ class MyComplex:
             return str(str(a) + " + j" + str(b))
 
     def __sub__(self, number):
-        print("odejmowanie 2")
         if type(number) == complex:
             a = self.get_real() - number.real
             b = self.get_imag() + number.imag
@@ -331,13 +330,13 @@ obj5 = obj3 + obj4
 
 
 # print(obj5)
-
+'''
 ##############################################################################
 
 # Calculator
 
 ##############################################################################
-
+'''
 class Calculate:
     @staticmethod
     def __add(one, other):
@@ -393,13 +392,14 @@ class Calculate:
                 result = self.__mod(a, b)
             elif to_compute[1] == "^":
                 result = self.__pow(a, b)
-        print(result)
+
+        print(str(result))
 
 
 obj = Calculate
 obj1 = MyComplex
 obj.compute(obj, obj1, "+ 10 + j 3 + 7 - j 5")
-
+'''
 ########################################################################################################################
 #
 #
