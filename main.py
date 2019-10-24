@@ -155,9 +155,10 @@ else:
 # Sortowanie
 
 ##############################################################################
+'''
 import random
 
-tab = random.sample(range(100000),50)
+tab = random.sample(range(100000), 50)
 in_tab = tab[:]
 in_tab2 = tab[:]
 
@@ -171,8 +172,8 @@ for x in range(len(in_tab)):
 if in_tab == sorted(in_tab2):
     print("Liczby są dobrze posortowane")
 else:
-    print("Spróbuj jeszcze raz") 
-
+    print("Spróbuj jeszcze raz")
+'''
 ##############################################################################
 
 # Iloczyn skalarny
@@ -246,9 +247,11 @@ A = np.array([[3,-50,4,5], [1,2,12,3], [4,5,6,59], [423,-5,36,29]])
 
 print("wyznacznik macierzy to: " + str(np.linalg.det(A)))
 '''
+
+
 ##############################################################################
 
-# Liczby zespolone
+# Complex numbers
 
 ##############################################################################
 
@@ -281,12 +284,12 @@ class MyComplex:
     def __sub__(self, number):
         if type(number) == complex:
             a = self.get_real() - number.real
-            b = self.get_imag() - number.imag
-            return str(str(a) + " + j" + str(b))
+            b = self.get_imag() + number.imag
+            return str(str(a) + str(complex(0, b)))
         elif type(number) == MyComplex:
             a = self.get_real() - number.get_real()
-            b = self.get_imag() - number.get_imag()
-            return str(str(a) + " + j" + str(b))
+            b = self.get_imag() + number.get_imag()
+            return str(str(int(a)) + ('+' if b > 0 else '+') + str(complex(0, b)))
 
     def __mul__(self, number):
         if type(number) == complex:
@@ -303,21 +306,22 @@ class MyComplex:
         return str(str(a))
 
     def __str__(self):
-        a = self.real + self.imag * j
+        a = self.real + self.imag * complex(0, 1)
         return str(a)
 
     def compute(self, to_compute):
-        self = MyComplex(complex(int(to_compute[0]), int(to_compute[3])))
-        other = MyComplex(complex(int(to_compute[5]), int(to_compute[8])))
-        if to_compute[1] == "+":
-            result = self + other
-        elif to_compute[1] == "-":
-            result = self - other
-        elif to_compute[1] == "*":
-            result = self * other
-        elif to_compute[1] == "||":
-            result = self
-        print(result)
+        self = MyComplex(complex(int(to_compute[0] + to_compute[1]), int(to_compute[2] + to_compute[4])))
+        other = MyComplex(complex(int('+' + to_compute[6]), int(to_compute[7] + to_compute[9])))
+        complex_result = 0
+        if to_compute[5] == "+":
+            complex_result = self + other
+        elif to_compute[5] == "-":
+            complex_result = self - other
+        elif to_compute[5] == "*":
+            complex_result = self * other
+        elif to_compute[5] == "||":
+            complex_result = self.get_real() + self.get_imag()
+        print(complex_result)
 
 
 obj3 = MyComplex(1 + 4j)
@@ -329,8 +333,7 @@ obj5 = obj3 + obj4
 
 ##############################################################################
 
-# Kalkulator Wykorzystaj powyzszą klasę do stworzenia prostego kalkulatora, parsującego i wykonującego równanie
-# podane przez użytkownika
+# Calculator
 
 ##############################################################################
 
@@ -370,8 +373,7 @@ class Calculate:
 
     def compute(self, calculator: object, to_compute: object) -> object:
         to_compute = to_compute.split()
-        print(to_compute)
-        if to_compute[2] == 'j':
+        if 'j' in to_compute:
             return calculator.compute(calculator, to_compute)
         else:
             a = int(to_compute[0])
@@ -390,10 +392,15 @@ class Calculate:
                 result = self.__mod(a, b)
             elif to_compute[1] == "^":
                 result = self.__pow(a, b)
-
-        print(str(result))
+        print(result)
 
 
 obj = Calculate
 obj1 = MyComplex
-obj.compute( obj, obj1, "10 + j 3 - 7 - j 5")
+obj.compute(obj, obj1, "+ 10 + j 3 + 7 - j 5")
+
+########################################################################################################################
+#
+#
+#
+########################################################################################################################
