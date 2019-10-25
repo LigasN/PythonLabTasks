@@ -81,7 +81,7 @@ print('\n'.join(os.listdir(path)))
 '''
 import os
 from PIL import Image
-path = 'D:\STUDIA\Images'
+path = 'D:\Nazwa pliku\Nazwa pliku'           #tutaj wpisujemy ścieżke do katalogu ze zdjęciami 
 files = os.listdir(path)
 for f in files:
     im = Image.open(path)
