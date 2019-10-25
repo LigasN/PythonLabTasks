@@ -75,6 +75,20 @@ print('\n'.join(os.listdir(path)))
 '''
 ##############################################################################
 
+# Konwersja rozszerzenia 
+
+##############################################################################
+'''
+import os
+from PIL import Image
+path = 'D:\STUDIA\Images'
+files = os.listdir(path)
+for f in files:
+    im = Image.open(path)
+    im.convert('RGB').save(path+"/"+f.split(".")[0]+".png","PNG")
+'''
+##############################################################################
+
 # Usuwanie slow
 
 ##############################################################################
