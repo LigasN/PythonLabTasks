@@ -44,50 +44,50 @@ print("Witaj " + name + " " + surname + " urodzony w " +birthYear+ "!")
 # Ilosc plikow
 
 ##############################################################################
-'''
-import os
-
-path = 'D:\Nazwa pliku\Nazwa pliku\Nazwa pliku'           #tutaj wpisujemy swoją ścieżkę do katalogu
-
-files = os.listdir(path)
-
-print("W pliku o ścieżce " + path + " znajduje sie " + str(len(files)) + " pliki")
-
-'''
+# '''
+# import os
+#
+# path = 'D:\Nazwa pliku\Nazwa pliku\Nazwa pliku'           #tutaj wpisujemy swoją ścieżkę do katalogu
+#
+# files = os.listdir(path)
+#
+# print("W pliku o ścieżce " + path + " znajduje sie " + str(len(files)) + " pliki")
+#
+# '''
 ##############################################################################
 
 # Struktura katalogu
 
 ##############################################################################
-'''
-import os
-
-path = 'D:\Nazwa pliku\Nazwa pliku\Nazwa pliku'           #tutaj wpisujemy swoją ścieżkę do katalogu
-end_path = 'D:\ '                                         #koniec wypisywania zawartości plików
-
-while path != end_path[:-1]:
-    print(path)
-    print('\n'.join(os.listdir(path)))
-    path = os.path.dirname(path)
-    print('\n')
-
-print(path)
-print('\n'.join(os.listdir(path)))
-'''
+# '''
+# import os
+#
+# path = 'D:\Nazwa pliku\Nazwa pliku\Nazwa pliku'           #tutaj wpisujemy swoją ścieżkę do katalogu
+# end_path = 'D:\ '                                         #koniec wypisywania zawartości plików
+#
+# while path != end_path[:-1]:
+#     print(path)
+#     print('\n'.join(os.listdir(path)))
+#     path = os.path.dirname(path)
+#     print('\n')
+#
+# print(path)
+# print('\n'.join(os.listdir(path)))
+# '''
 ##############################################################################
 
 # Konwersja rozszerzenia 
 
 ##############################################################################
-'''
-import os
-from PIL import Image
-path = 'D:\Nazwa pliku\Nazwa pliku'           #tutaj wpisujemy ścieżke do katalogu ze zdjęciami 
-files = os.listdir(path)
-for f in files:
-    im = Image.open(path)
-    im.convert('RGB').save(path+"/"+f.split(".")[0]+".png","PNG")
-'''
+# '''
+# import os
+# from PIL import Image
+# path = 'D:\Nazwa pliku\Nazwa pliku'           #tutaj wpisujemy ścieżke do katalogu ze zdjęciami
+# files = os.listdir(path)
+# for f in files:
+#     im = Image.open(path)
+#     im.convert('RGB').save(path+"/"+f.split(".")[0]+".png","PNG")
+# '''
 ##############################################################################
 
 # Usuwanie slow
@@ -278,10 +278,10 @@ print("wyznacznik macierzy to: " + str(np.linalg.det(A)))
 
 class MyComplex:
     def __init__(self, number):
-        if type(number) == complex:
+        if __title(number) == complex:
             self.real = number.real
             self.imag = number.imag
-        elif type(number) == MyComplex:
+        elif __title(number) == MyComplex:
             self.real = number.get_real()
             self.imag = number.get_imag()
 
@@ -292,31 +292,31 @@ class MyComplex:
         return self.imag
 
     def __add__(self, number):
-        if type(number) == complex:
+        if __title(number) == complex:
             a = self.get_real() + number.real
             b = self.get_imag() + number.imag
             return str(str(a) + " + j" + str(b))
-        elif type(number) == MyComplex:
+        elif __title(number) == MyComplex:
             a = self.get_real() + number.get_real()
             b = self.get_imag() + number.get_imag()
             return str(str(a) + " + j" + str(b))
 
     def __sub__(self, number):
-        if type(number) == complex:
+        if __title(number) == complex:
             a = self.get_real() - number.real
             b = self.get_imag() + number.imag
             return str(str(a) + str(complex(0, b)))
-        elif type(number) == MyComplex:
+        elif __title(number) == MyComplex:
             a = self.get_real() - number.get_real()
             b = self.get_imag() + number.get_imag()
             return str(str(int(a)) + ('+' if b > 0 else '+') + str(complex(0, b)))
 
     def __mul__(self, number):
-        if type(number) == complex:
+        if __title(number) == complex:
             a = self.get_real() * number.real - self.get_imag() * number.imag
             b = self.get_imag() * number.real + self.get_real() * number.imag
             return str(str(a) + " + j" + str(b))
-        elif type(number) == MyComplex:
+        elif __title(number) == MyComplex:
             a = self.get_real() * number.get_real() - self.get_imag() * number.get_imag()
             b = self.get_real() * number.get_imag() + self.get_imag() * number.get_real()
             return str(str(a) + " + j" + str(b))
@@ -420,14 +420,92 @@ obj = Calculate
 obj1 = MyComplex
 obj.compute(obj, obj1, "+ 10 + j 3 + 7 - j 5")
 '''
+
+
 ########################################################################################################################
 #
 # XML
 #
 ########################################################################################################################
-'''
 
-'''
+def sax_parsing():
+    print("sax parsing")
+
+    import xml.sax
+
+    class MovieHandler(xml.sax.ContentHandler):
+        def __init__(self):
+            self.__database = ""
+            self.__title = ""
+            self.__genre = ""
+            self.__year = ""
+            self.__grade = ""
+
+        def startElement(self, tag, attributes):
+            self.__database = tag
+            if tag == "movie":
+                title = attributes["title"]
+                print("Title: " + title)
+
+        def endElement(self, tag):
+            if self.__database == "title":
+                print("Type:" + self.__title)
+            elif self.__database == "genre":
+                print("Format:" + self.__genre)
+            elif self.__database == "year":
+                print("Year:" + self.__year)
+            elif self.__database == "grade":
+                print("Rating:" + self.__grade)
+            self.__database = ""
+
+        def characters(self, content):
+            if self.__database == "title":
+                self.__title = content
+            elif self.__database == "genre":
+                self.__genre = content
+            elif self.__database == "year":
+                self.__year = content
+            elif self.__database == "grade":
+                self.__grade = content
+
+    if __name__ == "__main__":
+        parser = xml.sax.make_parser()
+        parser.setFeature(xml.sax.handler.feature_namespaces, 0)
+
+        parser.setContentHandler(MovieHandler())
+
+        parser.parse("database.xml")
+
+
+def dom_parsing():
+    print("dom parsing")
+
+    from xml.dom.minidom import parse
+    import xml.dom.minidom
+
+    database = xml.dom.minidom.parse("database.xml")
+    collection = database.documentElement
+    if collection.hasAttribute("shelf"):
+        print("Root element : %s" % collection.getAttribute("shelf"))
+
+    movies = collection.getElementsByTagName("movie")
+
+    for movie in movies:
+        print("Title: %s" % movie.getAttribute("title"))
+        if movie.getElementsByTagName('genre'):
+            genre = movie.getElementsByTagName('genre')[0]
+            print("Genre: %s" % genre.childNodes[0].data)
+        if movie.getElementsByTagName('year'):
+            year = movie.getElementsByTagName('year')[0]
+            print("Year: %s" % year.childNodes[0].data)
+        if movie.getElementsByTagName('grade'):
+            grade = movie.getElementsByTagName('grade')[0]
+            print("Grade: %s" % grade.childNodes[0].data)
+
+
+# TODO: write changing a tag and save to new file
+sax_parsing()
+dom_parsing()
 ########################################################################################################################
 #
 # CSV/JSON
@@ -478,9 +556,9 @@ class Program:
         while decision == 'Y' or decision == 'y':
             title = input('Title: ').ljust(word_lenght)[:word_lenght]
             genre = input('Genre: ').ljust(word_lenght)[:word_lenght]
-            year = input('Year of premiere: ').ljust(word_lenght)[:word_lenght]
+            __year = input('Year of premiere: ').ljust(word_lenght)[:word_lenght]
             grade = input('Grade (0 - 10): ').ljust(word_lenght)[:word_lenght]
-            movie_dict = {'Title: ': title, 'Genre: ': genre, 'Year of premiere: ': year,
+            movie_dict = {'Title: ': title, 'Genre: ': genre, 'Year of premiere: ': __year,
                           'Grade (0 - 10): ': grade}
             decision = input('Would You like to add another one?(Y/n):')
             self.__database.append(movie_dict)
