@@ -27,17 +27,18 @@ print("Witaj " + name + " " + surname + " urodzony w " +birthYear+ "!")
 # Zapis danych
 
 ##############################################################################
-# kod = 1234
-#
-# while(1):
-# password = int(input("PASSWORD: "))
-#
-# if(kod == password):
-# print("Welcome in!!!")
-# break
-# else /* : */
-# print("Try again!")
-#
+'''
+ kod = 1234
+
+ while(1):
+ password = int(input("PASSWORD: "))
+
+ if(kod == password):
+ print("Welcome in!!!")
+ break
+ else /* : */
+ print("Try again!")
+'''
 ##############################################################################
 
 # Ilosc plikow
@@ -248,7 +249,6 @@ A = np.array([[3,-50,4,5], [1,2,12,3], [4,5,6,59], [423,-5,36,29]])
 print("wyznacznik macierzy to: " + str(np.linalg.det(A)))
 '''
 
-
 ##############################################################################
 
 # Complex numbers
@@ -413,5 +413,83 @@ obj.compute(obj, obj1, "+ 10 + j 3 + 7 - j 5")
 # CSV/JSON
 #
 ########################################################################################################################
+'''
+import json
+from pathlib import Path
+
+word_lenght = 16
 
 
+class Program:
+    def __init__(self):
+        my_file = Path('database.json')
+        if my_file.is_file():
+            self.__database = list()
+            self.open()
+            self.work()
+        else:
+            print('You do not have database file. Reinstall is needed!')
+
+    def open(self):
+        with open('database.json', 'r') as file:
+            try:
+                self.__database = json.load(file)
+            except:
+                print('You have an empty library! Add some movies!')
+                self.add_data()
+
+    def save(self):
+        with open('database.json', 'w') as f:
+            json.dump(self.__database, f, sort_keys=True, indent=4)
+
+    def read(self):
+        print('Your movie base:\n||Title           ||Genre           ||Year of premiere||Grade (0- 10)   ||')
+        for dict_element in self.__database:
+            to_print = "||" + str(dict_element["Title: "])
+            to_print += "||" + str(dict_element["Genre: "])
+            to_print += "||" + str(dict_element["Year of premiere: "])
+            to_print += "||" + str(dict_element["Grade (0 - 10): "])
+            to_print += "||"
+            print(to_print)
+
+    def add_data(self):
+        decision = 'Y'
+        movie_dict = {}
+        while decision == 'Y' or decision == 'y':
+            title = input('Title: ').ljust(word_lenght)[:word_lenght]
+            genre = input('Genre: ').ljust(word_lenght)[:word_lenght]
+            year = input('Year of premiere: ').ljust(word_lenght)[:word_lenght]
+            grade = input('Grade (0 - 10): ').ljust(word_lenght)[:word_lenght]
+            movie_dict = {'Title: ': title, 'Genre: ': genre, 'Year of premiere: ': year,
+                          'Grade (0 - 10): ': grade}
+            decision = input('Would You like to add another one?(Y/n):')
+            self.__database.append(movie_dict)
+            self.save()
+
+    def work(self):
+        self.read()
+        choice = input("\n\n1- add new\n2- delete one")
+        if choice == str(1):
+            self.add_data()
+        else:
+            self.delete_data()
+
+    def delete_data(self):
+        done = False
+        while not done:
+            choice = input("Which title You want to delete: ").ljust(word_lenght)[:word_lenght]
+            for dict_element in self.__database:
+                if dict_element["Title: "] == choice:
+                    self.__database.remove(dict_element)
+                    done = True
+            if not done:
+                print("No movie has this title. So again:")
+        self.save()
+
+
+obj = Program()
+obj.open()
+while 1:
+    obj.work()
+'''
+########################################################################################################################
