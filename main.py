@@ -480,10 +480,10 @@ def sax_parsing():
 def dom_parsing():
     print("dom parsing")
 
-    from xml.dom.minidom import parse
-    import xml.dom.minidom
+    from xml.dom import minidom
+    import random
 
-    database = xml.dom.minidom.parse("database.xml")
+    database = minidom.parse("database.xml")
     collection = database.documentElement
     if collection.hasAttribute("shelf"):
         print("Root element : %s" % collection.getAttribute("shelf"))
@@ -501,9 +501,12 @@ def dom_parsing():
         if movie.getElementsByTagName('grade'):
             grade = movie.getElementsByTagName('grade')[0]
             print("Grade: %s" % grade.childNodes[0].data)
-
-
-# TODO: write changing a tag and save to new file
+           
+    for mov in movies:
+        mov.setAttribute('title', str(random.randint(0,10)))
+        mov.setAttribute('shelf', str('Old'))
+    database.writexml(open('new_database.xml', 'w'))
+    
 sax_parsing()
 dom_parsing()
 ########################################################################################################################
