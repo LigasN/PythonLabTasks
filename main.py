@@ -168,11 +168,13 @@ def quadratic_equation():
         delta = b * b - (4 * a * c)
         print("Delta: " + str(delta))
         from math import sqrt
+        sqrt_delta = int(sqrt(delta))
+        print(str(sqrt_delta))
         if delta < 0:
             print("Delta< 0 brak pierwiastkow.")
         else:
-            x1 = (-b - sqrt(delta)) / (2 * a)
-            x2 = (-b + sqrt(delta)) / (2 * a)
+            x1 = (-b - sqrt_delta) / (2 * a)
+            x2 = (-b + sqrt_delta) / (2 * a)
             print("X1 = " + str(x1) + ", X2 = " + str(x2))
 
 
@@ -355,6 +357,7 @@ def complex_numbers():
     obj4 = MyComplex(9 + 8j)
     obj5 = obj3 + obj4
     print(obj5)
+
 
 
 ##############################################################################
