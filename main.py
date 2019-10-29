@@ -11,23 +11,21 @@ print("Hello World")
 # Wprowadzanie danych
 
 ##############################################################################
-'''
-data = input("Podaj swoje imie, nazwisko i rok urodzenia: ")
-data = data.split()
+def introduction_data():
+    data = input("Podaj swoje imie, nazwisko i rok urodzenia: ")
+    data = data.split()
 
-name = data[0]
-surname = data[1]
-birthYear = data[2]
+    name = data[0]
+    surname = data[1]
+    birthYear = data[2]
 
-print("Witaj " + name + " " + surname + " urodzony w " +birthYear+ "!")
-'''
+    print("Witaj " + name + " " + surname + " urodzony w " +birthYear+ "!")
 ###############################################################################
-
 
 # Zapis danych
 
 ##############################################################################
-'''
+def save_data():
  kod = 1234
 
  while(1):
@@ -38,112 +36,102 @@ print("Witaj " + name + " " + surname + " urodzony w " +birthYear+ "!")
  break
  else /* : */
  print("Try again!")
-'''
 ##############################################################################
 
 # Ilosc plikow
 
 ##############################################################################
-# '''
-# import os
-#
-# path = 'D:\Nazwa pliku\Nazwa pliku\Nazwa pliku'           #tutaj wpisujemy swoją ścieżkę do katalogu
-#
-# files = os.listdir(path)
-#
-# print("W pliku o ścieżce " + path + " znajduje sie " + str(len(files)) + " pliki")
-#
-# '''
+def number_of_file():
+    import os
+    path = 'D:\Nazwa pliku\Nazwa pliku\Nazwa pliku'           #tutaj wpisujemy swoją ścieżkę do katalogu
+    files = os.listdir(path)
+    print("W pliku o ścieżce " + path + " znajduje sie " + str(len(files)) + " pliki")
 ##############################################################################
 
 # Struktura katalogu
 
 ##############################################################################
-# '''
-# import os
-#
-# path = 'D:\Nazwa pliku\Nazwa pliku\Nazwa pliku'           #tutaj wpisujemy swoją ścieżkę do katalogu
-# end_path = 'D:\ '                                         #koniec wypisywania zawartości plików
-#
-# while path != end_path[:-1]:
-#     print(path)
-#     print('\n'.join(os.listdir(path)))
-#     path = os.path.dirname(path)
-#     print('\n')
-#
-# print(path)
-# print('\n'.join(os.listdir(path)))
-# '''
+def directory_structure():
+    import os
+
+    path = 'D:\Nazwa pliku\Nazwa pliku\Nazwa pliku'           #tutaj wpisujemy swoją ścieżkę do katalogu
+    end_path = 'D:\ '                                         #koniec wypisywania zawartości plików
+
+    while path != end_path[:-1]:
+        print(path)
+        print('\n'.join(os.listdir(path)))
+        path = os.path.dirname(path)
+        print('\n')
+
+    print(path)
+    print('\n'.join(os.listdir(path)))
 ##############################################################################
 
 # Konwersja rozszerzenia 
 
 ##############################################################################
-# '''
-# import os
-# from PIL import Image
-# path = 'D:\Nazwa pliku\Nazwa pliku'           #tutaj wpisujemy ścieżke do katalogu ze zdjęciami
-# files = os.listdir(path)
-# for f in files:
-#     im = Image.open(path)
-#     im.convert('RGB').save(path+"/"+f.split(".")[0]+".png","PNG")
-# '''
+def conversion_extension():
+import os
+from PIL import Image
+path = 'D:\Nazwa pliku\Nazwa pliku'           #tutaj wpisujemy ścieżke do katalogu ze zdjęciami
+files = os.listdir(path)
+for f in files:
+    im = Image.open(path)
+    im.convert('RGB').save(path+"/"+f.split(".")[0]+".png","PNG")
 ##############################################################################
 
 # Usuwanie slow
 
 ##############################################################################
-'''
-text = ''''''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
-eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim 
-veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur.Excepteur sint occaecat cupidatat
-non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.''''''
+def delete_words():
+    text = ''''''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
+    eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim 
+    veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur.Excepteur sint occaecat cupidatat
+    non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.''''''
     
-text = text.split()
-wordToDelete = 'in'
-textToRead = ''
+    text = text.split()
+    wordToDelete = 'in'
+    textToRead = ''
 
-for i in range(text.count(wordToDelete)):
-    text.remove(wordToDelete)
+    for i in range(text.count(wordToDelete)):
+        text.remove(wordToDelete)
     
-for word  in text:
-    textToRead += word + ' '
+    for word  in text:
+        textToRead += word + ' '
     
-print(textToRead)
- '''
+    print(textToRead)
 ##############################################################################
 
 # Podmienianie slow
 
 ##############################################################################
-'''
-text = ''''''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
-eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim 
-veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur.Excepteur sint occaecat cupidatat
-non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.''''''
+def replace_words():
+    text = ''''''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
+    eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim 
+    veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur.Excepteur sint occaecat cupidatat
+    non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.''''''
     
-text = text.split()
-changingDictionary = {'in' : '1', 'Lorem' : '0', 'laborum' : '100'} 
-textToRead = ''
+    text = text.split()
+    changingDictionary = {'in' : '1', 'Lorem' : '0', 'laborum' : '100'} 
+    textToRead = ''
 
-for words in changingDictionary:
-    for texts in text:
-        if(words == texts):
-            for i in range(text.count(texts)):
-                index = text.index(texts)
-                text.insert(index, changingDictionary[texts])
-                text.remove(texts)
-            
+    for words in changingDictionary:
+        for texts in text:
+            if(words == texts):
+                for i in range(text.count(texts)):
+                    index = text.index(texts)
+                    text.insert(index, changingDictionary[texts])
+                    text.remove(texts)
+                
 
-for word  in text:
-    textToRead = textToRead + word + ' '
+    for word  in text:
+        textToRead = textToRead + word + ' '
     
-print(textToRead)
-'''
+    print(textToRead)
 ##############################################################################
 
 # Równanie kwadratowe
@@ -594,3 +582,11 @@ while 1:
     obj.work()
 '''
 ########################################################################################################################
+
+#inttroduction_data()
+#save_data()
+#number_of_file()
+#directory_structure()
+#conversion_extension():
+#delete_words()
+#replace_words()
