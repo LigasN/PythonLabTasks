@@ -1,0 +1,21 @@
+<?xml version="1.0" ?><database shelf="New">
+   <movie title="6">
+      <genre>War</genre>
+      <year>2003</year>
+      <grade>5</grade>
+   </movie>
+   <movie title="9">
+      <genre>Science Fiction</genre>
+      <year>1989</year>
+      <grade>7</grade>
+   </movie>
+      <movie title="6">
+      <genre>Action</genre>
+      <year>1994</year>
+      <grade>4</grade>
+   </movie>
+   <movie title="8">
+      <genre>Comedy</genre>
+      <grade>8</grade>
+   </movie>
+</database>
